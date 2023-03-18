@@ -15,3 +15,4 @@ function checkSpeed(speed) {
       console.log(`Points: ${demeritPoints}`);
     }
   }
+  
