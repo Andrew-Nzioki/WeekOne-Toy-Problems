@@ -1,5 +1,7 @@
 //Calculate PAYE based on Monthly income
+function calculateGrossSalary(BasicSalary,Benefits){
 
+}
 function CalculatePAYE(Salary) {
   const personalRelief=2400;
   const insuranceRelief=5000;
@@ -59,7 +61,18 @@ function CalculateNhif(grossPay) {
   return nhif;
 }
 
+let I = 6000;
+let II=18000
 
-function CalculateNSSF(){
-    
+//This function takes your yearly deduction and returns the total deductions made in a year based on tier batch
+function CalculateNSSF(nssfdeduction){
+calculateGrossSalary(BasicSalary,Benefits)
+if(nssfdeduction>0 && nssdeduction <72000){
+    totaldeductions=grossPay*0.06
+//this else condition takes care of people using tire II model to make their nssf deductions 
+}else if(nssfdeduction>72001&& nssdeduction <216801){
+
 }
+}
+
+function calculateNetSalary(Basic)
