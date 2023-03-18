@@ -1,6 +1,13 @@
-//Calculate PAY
+//Calculate PAYE based on Monthly income
 
 function CalculatePAYE(Salary) {
+  const personalRelief=2400;
+  const insuranceRelief=5000;
+  const AllowablePensionFundContribution=20000;
+  const allowableHOSPContribution=0;
+  const AffordableHousingRelief=9000;
+  const AllowableOwnerOccupierInterest=25000;
+  const DisabilityExemption=150000;
   let PAYE;
   if (Salary <= 24000) {
     PAYE = Salary * 0.01;
@@ -50,4 +57,9 @@ function CalculateNhif(grossPay) {
     nhif = 1700;
   }
   return nhif;
+}
+
+
+function CalculateNSSF(){
+    
 }
