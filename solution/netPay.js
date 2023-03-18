@@ -86,12 +86,18 @@ function CalculateNhif(grossPay) {
 
     //Final calculation for PAYE, DEDUCTIONS AND THE NETPAY
  
-let StatutoryDeductions=nssf+nhif
+
+let Relief=24000
 let PAYE = (TaxablePay*TaxRate) - Relief
-const TaxableIncome = GrossPay - StatutoryDeductions - PersonalRelief
+let nssf=CalculateNSSF(nssfdeduction,grossPay)
+let nhif=CalculateNhif(grossPay)
+let StatutoryDeductions=nssf+nhif
+
+let TaxablePay = GrossPay - StatutoryDeductions - PersonalRelief
 const  NetIncome = GrossPay - StatutoryDeductions - PAYE
 
 
 TaxablePay=calculateTaxableIncome(40000,2000)
-PAYE=TaxablePay*TaxRate
+PAYE=(TaxablePay*TaxRate)-Relief
+console(NetIncome)
 console.log(PAYE)

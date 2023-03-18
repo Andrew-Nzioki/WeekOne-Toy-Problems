@@ -1,0 +1,9 @@
+function bubbleSort(array) { - This line defines a function named bubbleSort that takes an array as its parameter.
+const len = array.length; - This line declares a constant variable named len and assigns it the length of the input array using the length property of arrays.
+for (let i = 0; i < len; i++) { - This line begins a for loop that will iterate over the array len times, using a loop variable i that starts at 0 and increments by 1 on each iteration. This loop represents the outer loop of the bubble sort algorithm, which iterates over each element of the array.
+for (let j = 0; j < len - 1; j++) { - This line begins another for loop nested inside the outer loop, using a loop variable j that starts at 0 and increments by 1 on each iteration. This loop represents the inner loop of the bubble sort algorithm, which compares adjacent elements of the array and swaps them if necessary.
+if (array[j] > array[j + 1]) { - This line checks if the current element array[j] is greater than the next element array[j + 1], which would mean they're in the wrong order and need to be swapped.
+let temp = array[j]; - This line declares a temporary variable named temp and assigns it the value of the current element array[j]. This is the first step of swapping the two elements.
+array[j] = array[j + 1]; - This line assigns the value of the next element array[j + 1] to the current element array[j]. This is the second step of swapping the two elements.
+array[j + 1] = temp; - This line assigns the value of the temporary variable temp to the next element array[j + 1]. This is the third and final step of swapping the two elements.
+return array; - This line returns the sorted array after the outer loop completes all iterations. If the array is already sorted, it will be returned in its original order.
