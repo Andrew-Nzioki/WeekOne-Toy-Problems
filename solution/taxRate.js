@@ -1,5 +1,6 @@
-function calculateTaxRate(grossSalary){
+let grossSalary;
 let taxRates;
+function calculateTaxRate(grossSalary=0){
 if(grossSalary>=24000&&grossSalary<=288000){
   return taxRates=0.01
 }else if(grossSalary>288000&&grossSalary<=388000){
@@ -10,4 +11,4 @@ if(grossSalary>=24000&&grossSalary<=288000){
 }
 console.log(calculateTaxRate(299999))
 
-module.exports=calculateTaxRate(grossSalary);
+module.exports={taxRates,calculateTaxRate}
