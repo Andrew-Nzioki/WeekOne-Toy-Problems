@@ -1,21 +1,18 @@
-//Calculate PAYE based on Monthly income
-function calculateGrossSalary(BasicSalary,Benefits){
 
-}
+const personalRelief=2400;
+const insuranceRelief=5000;
+const AllowablePensionFundContribution=20000;
+const allowableHOSPContribution=0;
+const AffordableHousingRelief=9000;
+const AllowableOwnerOccupierInterest=25000;
+const DisabilityExemption=150000;
 function CalculatePAYE(Salary) {
-  const personalRelief=2400;
-  const insuranceRelief=5000;
-  const AllowablePensionFundContribution=20000;
-  const allowableHOSPContribution=0;
-  const AffordableHousingRelief=9000;
-  const AllowableOwnerOccupierInterest=25000;
-  const DisabilityExemption=150000;
   let PAYE;
   if (Salary <= 24000) {
     PAYE = Salary * 0.01;
-  } else if ((Salary > 24000 && Salary <= 32, 333)) {
+  } else if ((Salary > 24000 && Salary <= 32333)) {
     PAYE = Salary * 0.25;
-  } else if ((Salary > 32, 333)) {
+  } else if ((Salary > 32333)) {
   }
   return PAYE;
 }
@@ -61,12 +58,10 @@ function CalculateNhif(grossPay) {
   return nhif;
 }
 
-let I = 6000;
-let II=18000
+console.log(CalculateNhif(24000))
 
 //This function takes your yearly deduction and returns the total deductions made in a year based on tier batch
 function CalculateNSSF(nssfdeduction){
-calculateGrossSalary(BasicSalary,Benefits)
 if(nssfdeduction>0 && nssdeduction <72000){
     totaldeductions=grossPay*0.06
 //this else condition takes care of people using tire II model to make their nssf deductions 
@@ -74,5 +69,3 @@ if(nssfdeduction>0 && nssdeduction <72000){
 
 }
 }
-
-function calculateNetSalary(Basic)
