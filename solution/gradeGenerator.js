@@ -4,7 +4,19 @@ A > 79, B - 60 to 79, C -  59 to 49, D - 40 to 49, E - less 40.
 `;
 //marks = prompt("Enter grade");
 //a function to calculate the students grade based on the marks inputed
+import { prompt } from 'inquirer';
 
+const questions = [
+  {
+    type: 'input',
+    name: 'marks',
+    message: "Enter your marks",
+  },
+];
+
+prompt(questions).then(answers => {
+  console.log(gradeGenerator(44));
+});
 function gradeGenerator(marks) {
   //this first condition checks whether the grade is between 0 and 40
   if (marks>=0&&marks < 40) {
@@ -28,4 +40,4 @@ function gradeGenerator(marks) {
   }
   return;
 }
-gradeGenerator(44);
+
