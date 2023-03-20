@@ -4,19 +4,20 @@ A > 79, B - 60 to 79, C -  59 to 49, D - 40 to 49, E - less 40.
 `;
 //marks = prompt("Enter grade");
 //a function to calculate the students grade based on the marks inputed
-import { prompt } from 'inquirer';
+const readline = require("readline");
 
-const questions = [
-  {
-    type: 'input',
-    name: 'marks',
-    message: "Enter your marks",
-  },
-];
-
-prompt(questions).then(answers => {
-  console.log(gradeGenerator(44));
+// create interface for input and output
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
 });
+
+// create empty user input
+let marks = "";
+
+// question user to enter name
+rl.question("What is the student's Marks", function (marks) {
+
 function gradeGenerator(marks) {
   //this first condition checks whether the grade is between 0 and 40
   if (marks>=0&&marks < 40) {
@@ -41,3 +42,10 @@ function gradeGenerator(marks) {
   return;
 }
 
+gradeGenerator(marks)
+
+//console.log("Your speed is  " + speed);
+
+// close input stream
+rl.close();
+});
