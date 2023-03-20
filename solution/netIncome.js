@@ -95,7 +95,7 @@ const calculatePaye=(TaxablePay,TaxRate)=>{
 let PAYE = calculatePaye(TaxablePay,TaxRate)
 let nssf = calculateNSSF(nssfdeduction, grossPay)
 let nhif = calculateNhif(grossPay)
-const NetIncome = grossPay-(PAYE);
+const NetIncome = grossPay-(PAYE)-nssfdeduction-nhif;
 
 console.log('Your taxable Pay is ',TaxablePay)
 console.log('Your net Income is', NetIncome)
