@@ -64,3 +64,22 @@ Research Areas
 1. Objects. 
 2. Object constructor.
 3. constructor templates.
+
+Instructions on running the code
+clone the repo
+cd into Weekone-toy-problems
+cd into solution
+run the following commands for each file
+
+NETINCOME
+node netIncome.js  1000000 20000
+
+-the value 1000000 can be changed, it is the grosspay, while 2000 is the nssdeduction, they can be altered like node netIncome.js  20000 14000
+
+GRADEGENERATOR
+node gradeGenerator.js 
+-input the marks value as asked
+
+SPEEDDETECTOR
+node speed-Detector.js
+-input the value of speed as asked in the console
