@@ -1,6 +1,19 @@
+const readline = require("readline");
+
+// create interface for input and output
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+// create empty user input
+let grossPay = "";
+
+// question user to enter name
+rl.question("What is your grossPay", function (grossPay) {
 
 //Get the tax Rate section
-let grossSalary;
+let grossSalary=grossPay;
 let taxRates;
 function calculateTaxRate(grossSalary=0){
 if(grossSalary>=24000&&grossSalary<=288000){
@@ -55,18 +68,20 @@ function CalculateNhif(grossPay) {
   }
 
   //get the NSSF deduction here
-  function CalculateNSSF(nssfdeduction,grossPay){
-
-    if(nssfdeduction>0 && nssfdeduction <72000){
-        totaldeductions=grossPay*0.06
-    //this else condition takes care of people using tire II model to make their nssf deductions 
-    }else if(nssfdeduction>72001&& nssfdeduction <216801){
-    totaldeductions=grossPay*0.06
-    }else{
-        return totaldeductions=`The deductions are neither in Tire I or II`
+  function CalculateNSSF(nssfdeduction, grossPay) {
+    let totalDeductions;
+  
+    if (nssfdeduction > 0 && nssfdeduction <= 6000) {
+      totalDeductions = grossPay * 0.06;
+    } else if (nssfdeduction > 6000 && nssfdeduction <= 216800) {
+      totalDeductions =
+        (grossPay * 0.06 + (nssfdeduction - 6000) * 0.08) > 2400 ? 2400 : (grossPay * 0.06 + (nssfdeduction - 6000) * 0.08);
+    } else {
+      totalDeductions = "The deductions are neither in Tire I or II";
     }
-    return totaldeductions;
-    }
+  
+    return totalDeductions;
+  }
 
     //The taxable income is calculated in this section
     function calculateTaxableIncome(grossSalary, contributionBenefit=0, disability=0, haveMortgage=0, mortgageInterest=0, haveLifeInsurancePolicy=0, insurancePremium=0, homeOwnershipSavings=0, homeOwnershipTotalDeposit=0) {
@@ -74,13 +89,13 @@ function CalculateNhif(grossPay) {
         let taxableIncome = grossSalary - contributionBenefit
       
         if (disability>=150000&& disability<=1800000) {
-          taxableIncome =  taxableIncome - homeOwnershipTotalDeposit- insurancePremium- mortgageInterest-disability
+          taxableIncome = Math.abs( taxableIncome - homeOwnershipTotalDeposit- insurancePremium- mortgageInterest-disability)
         }else{
           taxableIncome =  taxableIncome - homeOwnershipTotalDeposit- insurancePremium- mortgageInterest-disability
         }
        return taxableIncome
       }
-      console.log(calculateTaxableIncome(40000,2000))
+      //console.log(calculateTaxableIncome(40000,2000))
 
 
 
@@ -90,7 +105,6 @@ let TaxablePay=calculateTaxableIncome(grossSalary, contributionBenefit=0, disabi
 let TaxRate=calculateTaxRate(grossSalary=0)
 let Relief=24000;
 let nssfdeduction;
-let grossPay;
 let PAYE = (TaxablePay*TaxRate) - Relief
 let nssf=CalculateNSSF(nssfdeduction,grossPay)
 let nhif=CalculateNhif(grossPay)
@@ -100,7 +114,12 @@ let StatutoryDeductions=nssf+nhif
 const  NetIncome = grossPay - StatutoryDeductions - PAYE
 
 
-TaxablePay=calculateTaxableIncome(40000,2000)
+console.log(TaxablePay)
 PAYE=(TaxablePay*TaxRate)-Relief
 console.log(NetIncome)
 console.log(PAYE)
+
+
+// close input stream
+rl.close();
+});
